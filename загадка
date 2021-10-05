@@ -1,0 +1,39 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	int a, b, k, i = 1, s = 0;
+	double r;
+	cout << "Введите а ";
+	cin >> a;
+	cout << "Введите b ";
+	cin >> b;
+	srand(time(NULL));
+	int secret_number = rand() % (b + 1 - a) + a;
+	r = secret_number;
+	cout << "Угадайте число у вас есть 7 попыток ";
+	cin >> k;
+	while (k != secret_number)
+	{
+		if (k < secret_number) {
+			cout << "Загаданное число больше" << endl;
+		}
+		if (k > secret_number) {
+			cout << "Загаданное число меньше" << endl;
+		}
+		if (7 - i == 0) {
+			cout << "Вы проиграли(" << endl;
+			break;
+		}
+		cout << "У вас осталось " << 7 - i << " попыток" << endl;
+		i++;
+		cin >> k;
+	}
+	if (k == secret_number)
+		cout << "Вы выиграли!!!" << endl;
+	cout << "Загаданное число = " << secret_number << endl;
+
+return 0;
+}
